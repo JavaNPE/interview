@@ -2,6 +2,7 @@ package jvm;
 
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author Dali
@@ -19,8 +20,14 @@ class MyData {
     }
 
     //请注意，此时number前面是加了volatile关键字修饰的，volatile不保证原子性
+//    public synchronized void addPlusPlus() {    //添加synchronized测试  输出：“main	 finally number value: 20000”
     public void addPlusPlus() {
         number++;
+    }
+
+    AtomicInteger atomicInteger = new AtomicInteger();
+    public void addAtomic() {
+        atomicInteger.getAndIncrement();
     }
 }
 
@@ -33,6 +40,9 @@ class MyData {
  * 2.1原子性只得是什么意思？
  * 不可分割，完整性，也即某个线程正在做某个具体业务时，中间不可呗加塞或者被分割，需要整体的完整
  * 要么同时成功，要么同时失败。
+ * 2.3如何解决原子性？
+ *    方式一：使用synchronized关键字（但是容易杀鸡用候刀，高射炮打蚊子）
+ *    方式二：使用我们的juc下的AtomicInteger
  */
 public class VolatileDemo {
     public static void main(String[] args) {
@@ -40,8 +50,9 @@ public class VolatileDemo {
         MyData myData = new MyData();
         for (int i = 0; i < 20; i++) {
             new Thread(() -> {
-                for (int j = 0; j <= 1000; j++) {
-                    myData.addPlusPlus();
+                for (int j = 1; j <= 1000; j++) {
+                    myData.addPlusPlus();   //不保证原子性
+                    myData.addAtomic();     //保证原子性
                 }
             }, String.valueOf(i)).start();
         }
@@ -50,7 +61,8 @@ public class VolatileDemo {
         while (Thread.activeCount() > 2) {  // >2  idea本身有一个 main线程
             Thread.yield();
         }
-        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);
+        System.out.println(Thread.currentThread().getName() + "\t int type,finally number value: " + myData.number);
+        System.out.println(Thread.currentThread().getName() + "\t AtomicInteger type,finally number value: " + myData.atomicInteger);
 /*        try {   //暂停一会线程
             TimeUnit.SECONDS.sleep(5);  //5秒
         } catch (InterruptedException e) {
