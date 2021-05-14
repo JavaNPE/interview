@@ -7,11 +7,12 @@ import java.util.concurrent.TimeUnit;
  * @Author Dali
  * @Date 2021/5/14 15:42
  * @Version 1.0
- * @Description
+ * @Description :验证volatile的可见性
  */
 
 class MyData {
-    int number = 0;
+    //int number = 0;
+    volatile int number = 0;    //volatile增强了 主内存和各线程之间的可见性
 
     public void addT060() {
         this.number = 60;
@@ -28,7 +29,7 @@ public class VolatileDemo {
         new Thread(() -> {      //线程1 AAA
             System.out.println(Thread.currentThread().getName() + "\t come in");
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(3);          //休眠3秒
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -40,7 +41,7 @@ public class VolatileDemo {
         while (myData.number == 0){
             // main线程就一一直再这里等待循环，直到number 值不再等于零。
         }
-        System.out.println(Thread.currentThread().getName()+"\t 任务完成"); //如果打印的是60 则感知 myData已被修改
+        System.out.println(Thread.currentThread().getName()+"\t 任务完成, main get number value:"+ myData.number); //如果打印的是60 则感知 myData已被修改
     }
 }
 
