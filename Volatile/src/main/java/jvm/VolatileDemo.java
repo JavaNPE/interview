@@ -50,7 +50,7 @@ public class VolatileDemo {
         while (Thread.activeCount() > 2) {  // >2  idea本身有一个 main线程
             Thread.yield();
         }
-        System.out.println(Thread.currentThread().getName()+"\t finally number value: "+ myData.number);
+        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);
 /*        try {   //暂停一会线程
             TimeUnit.SECONDS.sleep(5);  //5秒
         } catch (InterruptedException e) {
@@ -58,7 +58,7 @@ public class VolatileDemo {
         }*/
     }
 
-    //volatile可以保证可见性，及时通知其它线程，主物理内 存的值已经被修改。|
+    //volatile可以保证可见性，及时通知其它线程，主物理内 存的值已经被修改。
     private static void seOkByVolatile() {
         MyData myData = new MyData();       //资源类
         new Thread(() -> {      //线程1 AAA
