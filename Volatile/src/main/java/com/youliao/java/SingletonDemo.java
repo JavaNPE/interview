@@ -12,13 +12,20 @@ import java.lang.management.ThreadInfo;
  * @Description :单例模式在多线程环境下可能存在安全问题
  */
 public class SingletonDemo {
-    private static SingletonDemo instance = null;
+    private static volatile SingletonDemo instance = null;
     private SingletonDemo(){
         System.out.println(Thread.currentThread().getName()+"\t 我是构造方法SingletonDemo()");
     }
+
+    //DCL（Double Check Lock双端检索机制）
     public static SingletonDemo getInstance() {
         if (instance == null){
-            instance = new SingletonDemo();
+             synchronized (SingletonDemo.class){
+                 if (instance == null) {
+                     instance = new SingletonDemo();
+                 }
+             }
+          //  instance = new SingletonDemo();
         }
         return instance;
     }

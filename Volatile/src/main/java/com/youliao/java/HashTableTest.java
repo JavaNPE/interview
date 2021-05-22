@@ -18,5 +18,12 @@ public class HashTableTest {
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap<>();
 
+
+
+            for (int i = 0; i < 100; i++) {
+                new Thread(()->{
+                System.out.println(Thread.currentThread().getName());
+                }).start();
+            }
     }
 }

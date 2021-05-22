@@ -1,6 +1,5 @@
-package jvm;
+package com.youliao.thread;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
