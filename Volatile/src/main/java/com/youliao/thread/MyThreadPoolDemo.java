@@ -38,7 +38,7 @@ public class MyThreadPoolDemo {
     }
 
     private static void threadPoolInit() {
-        //System.out.println(Runtime.getRuntime().availableProcessors());
+        //System.out.println(Runtime.getRuntime().availableProcessors());   获取CPU核数代码
 //        ExecutorService threadPool = Executors.newFixedThreadPool(5);   //一池5个处理线程
 //        ExecutorService threadPool = Executors.newSingleThreadExecutor();   //一池1个处理线程
         ExecutorService threadPool = Executors.newCachedThreadPool();   //一池N个处理线程
