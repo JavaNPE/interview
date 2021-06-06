@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @Author Dali
  * @Date 2021/6/6 12:33
  * @Version 1.0
- * @Description
+ * @Description: boot整合redis搭建超卖程序 https://www.bilibili.com/video/BV1Hy4y1B78T?p=50&spm_id_from=pageDriver
  */
 @RestController
 public class GoodController {
