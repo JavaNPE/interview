@@ -10,7 +10,6 @@ public class JavaDemo02 {
     public static void main(String[] args) {
         while (true){
             System.out.println(new java.util.Random().nextInt(77778888));
-
         }
     }
 }
