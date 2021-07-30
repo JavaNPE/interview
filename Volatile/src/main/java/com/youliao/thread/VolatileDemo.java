@@ -25,6 +25,7 @@ class MyData {
     }
 
     AtomicInteger atomicInteger = new AtomicInteger();
+
     public void addAtomic() {
         atomicInteger.getAndIncrement();
     }
@@ -40,8 +41,8 @@ class MyData {
  * 不可分割，完整性，也即某个线程正在做某个具体业务时，中间不可呗加塞或者被分割，需要整体的完整
  * 要么同时成功，要么同时失败。
  * 2.3如何解决原子性？
- *    方式一：使用synchronized关键字（但是容易杀鸡用候刀，高射炮打蚊子）
- *    方式二：使用我们的juc下的AtomicInteger
+ * 方式一：使用synchronized关键字（但是容易杀鸡用候刀，高射炮打蚊子）
+ * 方式二：使用我们的juc下的AtomicInteger
  */
 public class VolatileDemo {
     public static void main(String[] args) {

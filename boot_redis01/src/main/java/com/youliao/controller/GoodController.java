@@ -38,10 +38,10 @@ public class GoodController {
                 stringRedisTemplate.opsForValue().set("goods:001", realNumber + "");
                 System.out.println("你已经成功秒杀商品，此时还剩余：" + realNumber + "件" + "\t 服务器端口：" + serverPort);
                 return "你已经成功秒杀商品，此时还剩余：" + realNumber + "件" + "\t 夫区其端口：" + serverPort;
-            }else {
-                System.out.println("商品已经售罄/活动结束/调用超时，欢迎下次光临"+"\t 服务器端口:"+serverPort);
+            } else {
+                System.out.println("商品已经售罄/活动结束/调用超时，欢迎下次光临" + "\t 服务器端口:" + serverPort);
             }
-            return "商品已经售罄/活动结束/调用超时，欢迎下次光临"+"\t 服务器端口:"+serverPort;
+            return "商品已经售罄/活动结束/调用超时，欢迎下次光临" + "\t 服务器端口:" + serverPort;
         }
     }
 

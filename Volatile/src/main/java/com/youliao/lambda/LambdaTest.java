@@ -57,8 +57,8 @@ public class LambdaTest {
         System.out.println("***************");
 
         //Lambda表达式
-        Comparator<Integer> com2 = (o1,o2) -> Integer.compare(o1,o2);
-        int compare2 = com2.compare(12,21);
+        Comparator<Integer> com2 = (o1, o2) -> Integer.compare(o1, o2);
+        int compare2 = com2.compare(12, 21);
         System.out.println(compare2);
 
         System.out.println("***************");

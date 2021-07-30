@@ -10,10 +10,10 @@ import java.util.concurrent.BlockingQueue;
  * @Date 2021/5/23 19:02
  * @Version 1.0
  * @Description: 阻塞队列
- *      1、队列
- *      2、阻塞队列
- *          2.1 阻塞队列有没有好的一面
- *          2.2 不得不阻塞，如何管理
+ * 1、队列
+ * 2、阻塞队列
+ * 2.1 阻塞队列有没有好的一面
+ * 2.2 不得不阻塞，如何管理
  */
 public class BlockingQueueDemo {
     public static void main(String[] args) {

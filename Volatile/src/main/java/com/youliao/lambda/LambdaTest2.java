@@ -52,7 +52,7 @@ public class LambdaTest2 {
         System.out.println(filterStrs);
 
         System.out.println("**************使用Lambda表达式：***************");
-        List<String> filterStrs1 =filterString(list, s->s.contains("京"));
+        List<String> filterStrs1 = filterString(list, s -> s.contains("京"));
         System.out.println(filterStrs1);
     }
 

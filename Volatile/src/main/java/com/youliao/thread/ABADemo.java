@@ -32,32 +32,44 @@ public class ABADemo {
             }
         }, "t2").start();
         //暂停2秒中让以上代码执行完成
-        try { TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) { e.printStackTrace(); }
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("+++++++++++++++++++以下是ABA问题的解决++++++++++++++++++");
-        new Thread(()->{
+        new Thread(() -> {
             int stamp = atomicStampedReference.getStamp();  //获得初始版本号
-            System.out.println(Thread.currentThread().getName()+"\t第1次版本号："+stamp);
+            System.out.println(Thread.currentThread().getName() + "\t第1次版本号：" + stamp);
             //暂停1秒t3线程
-            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace();}
-            atomicStampedReference.compareAndSet(100,101,atomicStampedReference.getStamp(),atomicStampedReference.getStamp()+1);
-            System.out.println(Thread.currentThread().getName()+"\t第2次版本号："+atomicStampedReference.getStamp());
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            atomicStampedReference.compareAndSet(100, 101, atomicStampedReference.getStamp(), atomicStampedReference.getStamp() + 1);
+            System.out.println(Thread.currentThread().getName() + "\t第2次版本号：" + atomicStampedReference.getStamp());
 
-            atomicStampedReference.compareAndSet(101,100,atomicStampedReference.getStamp(),atomicStampedReference.getStamp()+1);
-            System.out.println(Thread.currentThread().getName()+"\t第3次版本号："+atomicStampedReference.getStamp());
+            atomicStampedReference.compareAndSet(101, 100, atomicStampedReference.getStamp(), atomicStampedReference.getStamp() + 1);
+            System.out.println(Thread.currentThread().getName() + "\t第3次版本号：" + atomicStampedReference.getStamp());
 
 
-        },"t3").start();
+        }, "t3").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             int stamp = atomicStampedReference.getStamp();  //获得初始版本号
-            System.out.println(Thread.currentThread().getName()+"\t第1次版本号："+stamp);
+            System.out.println(Thread.currentThread().getName() + "\t第1次版本号：" + stamp);
             //暂停3秒t4线程,保证上面的t3线程完成了一次ABA操作
-            try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace();}
-            boolean result = atomicStampedReference.compareAndSet(100,2019,stamp,stamp+1);
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            boolean result = atomicStampedReference.compareAndSet(100, 2019, stamp, stamp + 1);
 
-            System.out.println(Thread.currentThread().getName()+"\t 修改是否成功："+ result+"\t当前最新的实际版本号:"+ atomicStampedReference.getStamp());
-            System.out.println(Thread.currentThread().getName()+"\t当前实际最新值:"+ atomicStampedReference.getReference());
-        },"t4").start();
+            System.out.println(Thread.currentThread().getName() + "\t 修改是否成功：" + result + "\t当前最新的实际版本号:" + atomicStampedReference.getStamp());
+            System.out.println(Thread.currentThread().getName() + "\t当前实际最新值:" + atomicStampedReference.getReference());
+        }, "t4").start();
     }
 }

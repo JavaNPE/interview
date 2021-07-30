@@ -19,11 +19,10 @@ public class HashTableTest {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap<>();
 
 
-
-            for (int i = 0; i < 100; i++) {
-                new Thread(()->{
+        for (int i = 0; i < 100; i++) {
+            new Thread(() -> {
                 System.out.println(Thread.currentThread().getName());
-                }).start();
-            }
+            }).start();
+        }
     }
 }
