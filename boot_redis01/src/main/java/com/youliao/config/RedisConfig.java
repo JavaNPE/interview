@@ -1,5 +1,6 @@
 package com.youliao.config;
 
+import org.redisson.Redisson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
@@ -8,6 +9,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.io.Serializable;
+
+import org.redisson.config.Config;
 
 /**
  * @Author Dali
@@ -24,5 +27,12 @@ public class RedisConfig {
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         redisTemplate.setConnectionFactory(connectionFactory);
         return redisTemplate;
+    }
+
+    @Bean
+    public Redisson redisson() {
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://192.168.187.150:6379").setDatabase(0);
+        return (Redisson) Redisson.create(config);
     }
 }
