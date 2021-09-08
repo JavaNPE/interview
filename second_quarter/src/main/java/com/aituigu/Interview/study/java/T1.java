@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author Dali
  * @Date 2021/5/23 11:28
  * @Version 1.0
- * @Description
+ * @Description: 公平锁和非公平锁
  */
 public class T1 {
     volatile int n = 0;
