@@ -55,7 +55,7 @@ public class ContainerNotSafeDemo {
 
 //        List<String> list = new Vector<>();       //方法1
 //        List<String> list = Collections.synchronizedList(new ArrayList<>());    //方法2
-        List<String> list = new CopyOnWriteArrayList<>();   //方法2
+        List<String> list = new CopyOnWriteArrayList<>();   //方法2(推荐)
 //        Collection;       //Collection 是一个接口，它是 Set、List 等容器的父接口；
 //        Collections;      //工具类
         for (int i = 1; i <= 30; i++) {
