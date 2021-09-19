@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @Description： java.util.Arrays:操作数组的工具类，里面定义了很多操作数组的方法
  */
 public class Arrays_操作数组的工具类 {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         //1.boolean equals(int[] a,int[] b): 判断两个数组是否相等
         int[] arr1 = new int[]{1, 2, 3, 4};
         int[] arr2 = new int[]{1, 22, 3, 4};
@@ -27,7 +27,7 @@ public class Arrays_操作数组的工具类 {
 
         //4.void sort(int[] a):对数组进行排序(默认是升序)
         Arrays.sort(arr2);
-        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr2));//[1, 3, 4, 22]
 
         //5. int binarySearch(int[] a,int key)
         int[] arr3 = new int[]{-98, -34, 2, 34, 54, 66, 79, 105, 210, 333};
