@@ -1,4 +1,4 @@
-package com.youliao.java;
+package com.youliao.java.array;
 
 /*
  * ⑤ 数组元素的默认初始化值
