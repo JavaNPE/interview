@@ -12,12 +12,12 @@ public class MyThreadPoolDemo {
     public static void main(String[] args) {
         //threadPoolInit(); //jdk版本
         ExecutorService threadPool = new ThreadPoolExecutor(
-                2,
-                5,
-                1L,
-                TimeUnit.SECONDS,
-                new LinkedBlockingQueue<Runnable>(3),
-                Executors.defaultThreadFactory(),
+                2,      //核心线程数
+                5,  //最大线程数
+                1L,     //多余的空闲线程的存活时间
+                TimeUnit.SECONDS,       //keepAliveTime的单位。
+                new LinkedBlockingQueue<Runnable>(3),   //任务队列
+                Executors.defaultThreadFactory(),   //线程工厂   和 拒绝策列
                 //new ThreadPoolExecutor.AbortPolicy());  //默认：终止策略
 //                new ThreadPoolExecutor.CallerRunsPolicy());   // 调用者执行策略
 //                new ThreadPoolExecutor.DiscardOldestPolicy());   // 抛弃队列中等待最久的任务
@@ -53,7 +53,7 @@ public class MyThreadPoolDemo {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            threadPool.shutdown();
+            threadPool.shutdown();  //然后我们使用完毕后关闭线程池
         }
     }
 }

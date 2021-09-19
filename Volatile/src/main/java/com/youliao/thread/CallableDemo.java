@@ -14,7 +14,7 @@ import java.util.function.Function;
  * @Description: java多线程中  获得多线程的方式
  */
 //实现Runnable接口 通过实现Runnable接口获取多线程
-/*class MyThread implements Runnable{
+/*class MyThread implements Runnable{   //没有返回值，且不带异常
 
     @Override
     public void run() {
@@ -26,7 +26,7 @@ import java.util.function.Function;
 class MyThread implements Callable<Integer> {
 
     @Override
-    public Integer call() throws Exception {
+    public Integer call() throws Exception {    //有返回值，且带异常。
         System.out.println("*******come in Callable******");
         return 1024;
     }

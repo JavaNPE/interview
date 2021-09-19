@@ -11,7 +11,7 @@ package jvm.gc;
 public class HelloGC {
     public static void main(String[] args) throws Exception {
         System.out.println("**********HelloGC");
-        //Thread.sleep(Integer.MAX_VALUE);
+        Thread.sleep(Integer.MAX_VALUE);
 
      /*   // 返回Java虚拟机中内存的总量
         long totalMemory = Runtime.getRuntime().totalMemory();
