@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @Version 1.0
  * @Description: JAVA 8直接用流的方法：将list转换为map的方法
  */
-public class listToMap_2 {
+public class ListToMap_2 {
     public static void main(String[] args) {
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "长津湖"));

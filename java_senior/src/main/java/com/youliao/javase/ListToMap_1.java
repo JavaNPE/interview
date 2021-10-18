@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  * @Version 1.0
  * @Description: 使用传统的方法：将list转换为map的方法
  */
-public class listToMap_1 {
+public class ListToMap_1 {
     public static void main(String[] args) {
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "长津湖"));
