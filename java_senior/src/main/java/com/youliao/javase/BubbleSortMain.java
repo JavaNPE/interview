@@ -1,4 +1,4 @@
-package com.youliao.thread.javase;
+package com.youliao.javase;
 
 import java.util.Arrays;
 
