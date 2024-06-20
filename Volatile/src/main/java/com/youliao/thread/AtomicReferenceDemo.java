@@ -1,7 +1,7 @@
 package com.youliao.thread;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.util.concurrent.atomic.AtomicInteger;
