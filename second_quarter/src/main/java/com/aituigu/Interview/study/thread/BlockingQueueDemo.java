@@ -21,8 +21,8 @@ public class BlockingQueueDemo {
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
         System.out.println(blockingQueue.add("c"));
-        System.out.println(blockingQueue.element());
-
+        System.out.println(blockingQueue.element());    // 检查队列空不空，检查首元素是谁
+        System.out.println("-----------------------");
         System.out.println(blockingQueue.remove());     //队列先进先出
         System.out.println(blockingQueue.remove());
         System.out.println(blockingQueue.remove());
