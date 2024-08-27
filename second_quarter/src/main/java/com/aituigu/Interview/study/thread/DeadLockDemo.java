@@ -55,7 +55,7 @@ class HoldLockCallableThread implements Callable {
     }
 
     @Override
-    public Object call() throws Exception {
+    public String call() throws Exception {
         synchronized (lockA) {
             System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockA + "\t 尝试获得：" + lockB);
             //暂停一会线程
