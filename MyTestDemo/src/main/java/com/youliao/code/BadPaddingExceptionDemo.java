@@ -21,7 +21,7 @@ public class BadPaddingExceptionDemo {
         try {
             // 密钥
             byte[] keyBytes = "MySecretKey12345".getBytes();
-            System.out.println("keyBytes：" + keyBytes);
+            System.out.println("keyBytes：" + Base64.getEncoder().encodeToString(keyBytes));
             SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
             System.out.println("secretKey：" + secretKey);
 
@@ -40,10 +40,12 @@ public class BadPaddingExceptionDemo {
             // 模拟使用错误的密钥解密数据
             byte[] wrongKeyBytes = "WrongKey".getBytes();
             SecretKey wrongKey = new SecretKeySpec(wrongKeyBytes, "AES");
-            cipher.init(Cipher.DECRYPT_MODE, wrongKey);
+            // cipher.init(Cipher.DECRYPT_MODE, wrongKey); // 报错情况：解密失败
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
 
-            // 尝试解密数据，抛出BadPaddingException异常
+            // 尝试解密数据，抛出 BadPaddingException 异常
             byte[] decryptedData = cipher.doFinal(encryptedData);
+            System.out.println("decryptedData:" + Base64.getEncoder().encodeToString(decryptedData));
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
             // 捕获BadPaddingException异常并进行处理
             System.err.println("BadPaddingException caught: " + e.getMessage());
