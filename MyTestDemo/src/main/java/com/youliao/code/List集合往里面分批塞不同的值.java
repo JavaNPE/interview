@@ -32,11 +32,11 @@ public class List集合往里面分批塞不同的值 {
      */
     @Test
     public int test02() {
-//        String pid = "NBCBZJD001,NBCBZJD002,NBCBZJD003";
+//        String pid = "CRCSZJD001,CRCSZJD002,CRCSZJD003";
 //        System.out.println(pid);
-        List<String> productIdList = Collections.singletonList("NBCBZJD001,NBCBZJD002,NBCBZJD003");
+        List<String> productIdList = Collections.singletonList("CRCSZJD001,CRCSZJD002,CRCSZJD003");
 
-        if (productIdList.contains("NBCBZJD003")) {
+        if (productIdList.contains("CRCSZJD003")) {
             return 9;
         }
 //        System.out.println(productIdList);

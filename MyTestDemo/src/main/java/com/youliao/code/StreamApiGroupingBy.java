@@ -27,13 +27,13 @@ public class StreamApiGroupingBy {
 
     @Test
     public void test02() {
-//        String productIds = "NBCBZJD001,NBCBZJD002,NBCBZJD003";
+//        String productIds = "CRCSZJD001,CRCSZJD002,CRCSZJD003";
 //        List<String> productIdList = new ArrayList<>();
 //        Collections.addAll(productIdList,productIds.split(","));
 //        System.out.println(productIdList);
 
 
-        List<String> list = Arrays.asList("NBCBZJD001,NBCBZJD002,NBCBZJD003");
+        List<String> list = Arrays.asList("CRCSZJD001,CRCSZJD002,CRCSZJD003");
 
     }
 }

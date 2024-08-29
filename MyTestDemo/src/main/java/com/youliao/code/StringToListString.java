@@ -15,7 +15,7 @@ import java.util.List;
 public class StringToListString {
     @Test
     public void test1() {
-        String productId = "NBCBZJD001,NBCBZJFEN001,NBCBZJFU001";
+        String productId = "CRCSZJD001,NBCBZJFEN001,NBCBZJFU001";
         List<String> productIdList = new ArrayList<>();
         Collections.addAll(productIdList,productId.split(","));
         System.out.println(productIdList);

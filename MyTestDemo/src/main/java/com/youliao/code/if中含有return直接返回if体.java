@@ -12,16 +12,16 @@ import java.util.List;
  */
 public class if中含有return直接返回if体 {
     public static void main(String[] args) {
-        String pId = "NBCBZJD001,NBCBZJD002,NBCBZJD003";
+        String pId = "CRCSZJD001,CRCSZJD002,CRCSZJD003";
         List<String> productIdList = new ArrayList<>();
         Collections.addAll(productIdList, pId.split(","));
 //        productIdList.add(pId);
         System.out.println("pId:" + pId);
         System.out.println("productIdList:" + productIdList);
 
-        //List<String> productIdList = Collections.singletonList("NBCBZJD001,NBCBZJD002,NBCBZJD003");
+        //List<String> productIdList = Collections.singletonList("CRCSZJD001,CRCSZJD002,CRCSZJD003");
 
-        if (productIdList.contains("NBCBZJD001")) {
+        if (productIdList.contains("CRCSZJD001")) {
             System.out.println("111111111111");
             return;
         }

@@ -4,7 +4,7 @@ package com.youliao.study.javase;
  * @Author Dali
  * @Date 2021/9/1 18:21
  * @Version 1.0
- * @Description: 58同城的java字符串常量池
+ * @Description: 58同城的java字符串常量池-intern方法 （首次遇到原则）
  */
 public class StringPool58Demo {
     public static void main(String[] args) {

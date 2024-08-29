@@ -13,13 +13,13 @@ import java.util.List;
  */
 public class String转成ListString {
     public static void main(String[] args) {
-        String productid = "NBCBZJD001,NBCBZJD002,NBCBZJD003";
+        String productid = "CRCSZJD001,CRCSZJD002,CRCSZJD003";
         List<String> productidList = Lists.newArrayList();
         //List<String> productidList = Lists.newArrayList(productid);
-        //System.out.println(productidList);  //[NBCBZJD001,NBCBZJD002,NBCBZJD003]
+        //System.out.println(productidList);  //[CRCSZJD001,CRCSZJD002,CRCSZJD003]
 
         Collections.addAll(productidList, productid.split(","));
-        System.out.println("productidList:" + productidList);//productidList:[NBCBZJD001, NBCBZJD002, NBCBZJD003]
+        System.out.println("productidList:" + productidList);//productidList:[CRCSZJD001, CRCSZJD002, CRCSZJD003]
 
     }
 }
