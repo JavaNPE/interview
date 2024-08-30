@@ -34,7 +34,7 @@ class HoldLockThread implements Runnable {
     public void run() {
         synchronized (lockA) {
             System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockA + "\t 尝试获得：" + lockB);
-            //暂停一会线程
+            // 暂停一会线程
             TimeUnit.SECONDS.sleep(2);
             synchronized (lockB) {
                 System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockB + "\t 尝试获得：" + lockA);
@@ -58,7 +58,7 @@ class HoldLockCallableThread implements Callable {
     public String call() throws Exception {
         synchronized (lockA) {
             System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockA + "\t 尝试获得：" + lockB);
-            //暂停一会线程
+            // 暂停一会线程
             TimeUnit.SECONDS.sleep(2);
             synchronized (lockB) {
                 System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockB + "\t 尝试获得：" + lockA);
@@ -80,6 +80,10 @@ public class DeadLockDemo {
          * Linux  ps -ef|grep XXXX  ls -l
          * Windows 下的java运行程序  也有类似的ps的查看进程的命令，但是目前我们需要查看的只是java
          *          jps = java ps   jps -l
+         *
+         *  12.死锁编码及定位分析：
+         *      jps命令定位进程编号：jps -l    定位到自己代码对应的类的 线程号 14948 com.aituigu.Interview.study.thread.DeadLockDemo
+         *      jstack找到死锁查看：jstack 14948
          */
     }
 
